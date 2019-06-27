@@ -82,7 +82,7 @@ func genDataFile() {
 
 	fmt.Printf("var wordlist []Word = []Word{")
 	for _, item := range words {
-		fmt.Printf("\n\tWord{Name:\"%s\", Desc:\"%s\"},", item.Name, item.Desc)
+		fmt.Printf("\n\tWord{Name:\"%s\", Ts:\"%s\", Desc:\"%s\"},", item.Name, covertdata(item.Ts), item.Desc)
 	}
 	fmt.Printf("\n}\n")
 }
@@ -139,4 +139,105 @@ func genData() {
 		fmt.Printf("\n\t\"%s\":\"%s\",", k, v)
 	}
 	fmt.Printf("\n}\n")
+}
+
+func covertdata(s string) (r string) {
+	for _, item := range s {
+		r += convert(string(item))
+	}
+	return
+}
+
+func convert(s string) (r string) {
+	switch s {
+	case "i":
+		r = "i"
+	case ":":
+		r = ":"
+	case "e":
+		r = "e"
+	case "5":
+		r = "æ"
+	case "1":
+		r = "ɑ"
+	case "6":
+		r = "ɔ"
+	case "u":
+		r = "u"
+	case "2":
+		r = "ʌ"
+	case "3":
+		r = "ə"
+	case "a":
+		r = "a"
+	case "o":
+		r = "o"
+	case "4":
+		r = "ɛ"
+	case "j":
+		r = "j"
+	case "p":
+		r = "p"
+	case "b":
+		r = "b"
+	case "t":
+		r = "t"
+	case "d":
+		r = "d"
+	case "k":
+		r = "k"
+	case "g":
+		r = "g"
+	case "m":
+		r = "m"
+	case "n":
+		r = "n"
+	case "9":
+		r = "ŋ"
+	case "l":
+		r = "l"
+	case "f":
+		r = "f"
+	case "v":
+		r = "v"
+	case "0":
+		r = "0"
+	case "8":
+		r = "ð"
+	case "s":
+		r = "s"
+	case "z":
+		r = "z"
+	case "7":
+		r = "ʃ"
+	case "=":
+		r = "ʒ"
+	case "r":
+		r = "r"
+	case "h":
+		r = "h"
+	case "w":
+		r = "w"
+	case "[":
+		r = "["
+	case "'":
+		r = "ˈ"
+	case ";":
+		r = ","
+	case "]":
+		r = "]"
+	case "-":
+		r = "-"
+	case "(":
+		r = "("
+	case ")":
+		r = ")"
+	case ",":
+		r = ","
+	case " ":
+		r = " "
+	default:
+		r = " "
+	}
+	return
 }
