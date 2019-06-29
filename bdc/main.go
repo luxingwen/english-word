@@ -40,7 +40,7 @@ type Book struct {
 func main() {
 	bdc := &BDC{mWav: make(map[string]string, 0)}
 	bdc.FlagSet = flag.NewFlagSet("BDC Global Params", flag.ContinueOnError)
-	bdc.StringVar(&bdc.ttsforlder, "tts", "", "语言文件目录")
+	bdc.StringVar(&bdc.ttsforlder, "tts", "", "语音文件目录")
 	bdc.StringVar(&bdc.wordfile, "data", "", "词库文件")
 	bdc.BoolVar(&bdc.h, "h", false, "帮助")
 	bdc.BoolVar(&bdc.winCmd, "winCmd", false, "windows cmd命令行")
